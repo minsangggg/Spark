@@ -1,0 +1,15 @@
+version: '3'
+services:
+  spark:
+    build: .
+    container_name: pyspark-notebook
+    ports:
+      - "8888:8888"
+      - "4040:4040"
+    volumes:
+      - ./workspace:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=
+      - JUPYTER_PASSWORD=
+    command: start-notebook.sh --NotebookApp.token=""
+
